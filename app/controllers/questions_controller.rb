@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new
     @question.user_id = params[:user_id]
-    @question.interviewer = params[:interviewer]
+    @question.interviewer_id = params[:interviewer_id]
     @question.response_length_id = params[:response_length_id]
     @question.category_id = params[:category_id]
     @question.question = params[:question]
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     @question.user_id = params[:user_id]
-    @question.interviewer = params[:interviewer]
+    @question.interviewer_id = params[:interviewer_id]
     @question.response_length_id = params[:response_length_id]
     @question.category_id = params[:category_id]
     @question.question = params[:question]

@@ -1,5 +1,39 @@
 Rails.application.routes.draw do
 
+  # Routes for the Interviewer resource:
+  # CREATE
+  get "/interviewers/new", :controller => "interviewers", :action => "new"
+  post "/create_interviewer", :controller => "interviewers", :action => "create"
+
+  # READ
+  get "/interviewers", :controller => "interviewers", :action => "index"
+  get "/interviewers/:id", :controller => "interviewers", :action => "show"
+
+  # UPDATE
+  get "/interviewers/:id/edit", :controller => "interviewers", :action => "edit"
+  post "/update_interviewer/:id", :controller => "interviewers", :action => "update"
+
+  # DELETE
+  get "/delete_interviewer/:id", :controller => "interviewers", :action => "destroy"
+  #------------------------------
+
+  # Routes for the Question resource:
+  # CREATE
+  get "/questions/new", :controller => "questions", :action => "new"
+  post "/create_question", :controller => "questions", :action => "create"
+
+  # READ
+  get "/questions", :controller => "questions", :action => "index"
+  get "/questions/:id", :controller => "questions", :action => "show"
+
+  # UPDATE
+  get "/questions/:id/edit", :controller => "questions", :action => "edit"
+  post "/update_question/:id", :controller => "questions", :action => "update"
+
+  # DELETE
+  get "/delete_question/:id", :controller => "questions", :action => "destroy"
+  #------------------------------
+
   # Set root for devise
   root 'questions#index'
 
@@ -35,23 +69,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_practice_interview/:id", :controller => "practice_interviews", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Question resource:
-  # CREATE
-  get "/questions/new", :controller => "questions", :action => "new"
-  post "/create_question", :controller => "questions", :action => "create"
-
-  # READ
-  get "/questions", :controller => "questions", :action => "index"
-  get "/questions/:id", :controller => "questions", :action => "show"
-
-  # UPDATE
-  get "/questions/:id/edit", :controller => "questions", :action => "edit"
-  post "/update_question/:id", :controller => "questions", :action => "update"
-
-  # DELETE
-  get "/delete_question/:id", :controller => "questions", :action => "destroy"
   #------------------------------
 
   # Routes for the Category resource:

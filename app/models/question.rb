@@ -5,6 +5,4 @@ class Question < ActiveRecord::Base
   validates :category_id, :presence => true
   validates :question, :presence => true, :uniqueness => true
 
-
-
 end
