@@ -19,10 +19,10 @@
 
       <% @questions.each do |question| %>
       <tr>
-        <td><%= question.user_id %></td>
-        <td><%= question.interviewer_id %></td>
+        <td><%= question.user.email %></td>
+        <td><%= question.interviewer.name %></td>
         <td><%= question.response_length_id %></td>
-        <td><%= question.category_id %></td>
+        <td><%= question.category.name %></td>
         <td><%= question.question %></td>
         <td>
           <a href="/questions/<%= question.id %>" class="btn btn-primary">Show</a>

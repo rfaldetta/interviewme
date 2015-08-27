@@ -18,14 +18,8 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @question.user_id %>">
-      </div>
+      <!-- Hidden input for user_id -->
+      <input name="user_id" type="hidden" value="<%= current_user.id %>">
 
       <!-- Label and input for interviewer_id -->
       <div class="form-group">
@@ -33,7 +27,7 @@
           Interviewer
         </label>
 
-        <input type="text" id="interviewer_id" name="interviewer_id" placeholder="Interviewer" class="form-control" value="<%= @question.interviewer_id %>">
+        <%= select_tag(:interviewer_id, options_from_collection_for_select(Interviewer.all, :id, :name, @question.interviewer_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for response_length_id -->
@@ -42,7 +36,7 @@
           Response length
         </label>
 
-        <input type="text" id="response_length_id" name="response_length_id" placeholder="Response length" class="form-control" value="<%= @question.response_length_id %>">
+        <%= select_tag(:response_length_id, options_from_collection_for_select(ResponseLength.all, :id, :name, @question.response_length_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for category_id -->
@@ -51,7 +45,7 @@
           Category
         </label>
 
-        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @question.category_id %>">
+        <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @question.category_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for question -->
