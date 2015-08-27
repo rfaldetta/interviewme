@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Practice Question #<%= @practice_question.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Response</dt>
+      <dd><%= @practice_question.response %></dd>
+
+      <dt>Practice interview</dt>
+      <dd><%= @practice_question.practice_interview_id %></dd>
+
+      <dt>Question</dt>
+      <dd><%= @practice_question.question_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/practice_questions" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/practice_questions/<%= @practice_question.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_practice_question/<%= @practice_question.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

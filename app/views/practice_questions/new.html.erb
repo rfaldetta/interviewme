@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @practice_question.errors.any? %>
+  <% @practice_question.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Practice Question</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_practice_question" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for response -->
+      <div class="form-group">
+        <label for="response" class="control-label">
+          Response
+        </label>
+
+        <textarea id="response" name="response" placeholder="Response" class="form-control" rows="3"><%= @practice_question.response %></textarea>
+      </div>
+
+      <!-- Label and input for practice_interview_id -->
+      <div class="form-group">
+        <label for="practice_interview_id" class="control-label">
+          Practice interview
+        </label>
+
+        <input type="text" id="practice_interview_id" name="practice_interview_id" placeholder="Practice interview" class="form-control" value="<%= @practice_question.practice_interview_id %>">
+      </div>
+
+      <!-- Label and input for question_id -->
+      <div class="form-group">
+        <label for="question_id" class="control-label">
+          Question
+        </label>
+
+        <input type="text" id="question_id" name="question_id" placeholder="Question" class="form-control" value="<%= @practice_question.question_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Practice Question
+      </button>
+      or
+      <a href="/practice_questions">Cancel</a>
+    </form>
+  </div>
+</div>
