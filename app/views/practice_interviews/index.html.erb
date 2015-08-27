@@ -15,7 +15,7 @@
 
       <% @practice_interviews.each do |practice_interview| %>
       <tr>
-        <td><%= practice_interview.user_id %></td>
+        <td><%= practice_interview.user.email %></td>
         <td>
           <a href="/practice_interviews/<%= practice_interview.id %>" class="btn btn-primary">Show</a>
           <a href="/practice_interviews/<%= practice_interview.id %>/edit" class="btn btn-warning">Edit</a>
