@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Edit Practice Interview #<%= @practice_interview.id %></h3>
+  <h3>Submit your responses to this practice interview</h3>
 </div>
 
 <div class="row">
@@ -18,17 +18,51 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for user_id -->
+<!-- Hidden input for user_id -->
+      <input name="user_id" type="hidden" value="<%= current_user.id %>">
+
+
+      <!-- Hidden input for practice_question_id's -->
+      <input name="pq_1" type="hidden" value="<%= @pq_1.id %>">
+      <input name="pq_2" type="hidden" value="<%= @pq_2.id %>">
+      <input name="pq_3" type="hidden" value="<%= @pq_3.id %>">
+      <input name="pq_4" type="hidden" value="<%= @pq_4.id %>">
+      <input name="pq_5" type="hidden" value="<%= @pq_5.id %>">
+
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
+        <label for="response_1" class="control-label">
+          <%= @practice_interview.questions.first.question %>
         </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @practice_interview.user_id %>">
+        <input type="text" id="response_1" name="response_1" placeholder="response" class="form-control">
+
+        <label for="response_2" class="control-label">
+          <%= @practice_interview.questions.second.question %>
+        </label>
+
+        <input type="text" id="response_2" name="response_2" placeholder="response" class="form-control">
+
+        <label for="response_3" class="control-label">
+          <%= @practice_interview.questions.third.question %>
+        </label>
+
+        <input type="text" id="response_3" name="response_3" placeholder="response" class="form-control">
+
+        <label for="response_4" class="control-label">
+          <%= @practice_interview.questions.fourth.question %>
+        </label>
+
+        <input type="text" id="response_4" name="response_4" placeholder="response" class="form-control">
+
+        <label for="response_5" class="control-label">
+          <%= @practice_interview.questions.fifth.question %>
+        </label>
+
+        <input type="text" id="response_5" name="response_5" placeholder="response" class="form-control">
       </div>
 
       <button class="btn btn-warning">
-        Update Practice Interview
+        Submit your responses
       </button>
       or
       <a href="/practice_interviews/<%= @practice_interview.id %>">Cancel</a>

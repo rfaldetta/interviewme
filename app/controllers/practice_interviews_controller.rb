@@ -57,12 +57,35 @@ class PracticeInterviewsController < ApplicationController
 
   def edit
     @practice_interview = PracticeInterview.find(params[:id])
+
+    @pq_1 = @practice_interview.practice_questions.first
+    @pq_2 = @practice_interview.practice_questions.second
+    @pq_3 = @practice_interview.practice_questions.third
+    @pq_4 = @practice_interview.practice_questions.fourth
+    @pq_5 = @practice_interview.practice_questions.fifth
   end
 
   def update
     @practice_interview = PracticeInterview.find(params[:id])
-
     @practice_interview.user_id = params[:user_id]
+
+    @response_1 = PracticeQuestion.find(params[:pq_1])
+    @response_2 = PracticeQuestion.find(params[:pq_2])
+    @response_3 = PracticeQuestion.find(params[:pq_3])
+    @response_4 = PracticeQuestion.find(params[:pq_4])
+    @response_5 = PracticeQuestion.find(params[:pq_5])
+
+    @response_1.response = params[:response_1]
+    @response_2.response = params[:response_2]
+    @response_3.response = params[:response_3]
+    @response_4.response = params[:response_4]
+    @response_5.response = params[:response_5]
+
+    @response_1.save
+    @response_2.save
+    @response_3.save
+    @response_4.save
+    @response_5.save
 
     if @practice_interview.save
       redirect_to "/practice_interviews", :notice => "Practice interview updated successfully."
