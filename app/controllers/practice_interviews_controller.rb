@@ -1,6 +1,6 @@
 class PracticeInterviewsController < ApplicationController
   def index
-    @practice_interviews = PracticeInterview.all
+    @practice_interviews = current_user.practice_interviews
   end
 
   def show
