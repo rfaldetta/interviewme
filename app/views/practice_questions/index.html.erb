@@ -19,7 +19,7 @@
       <tr>
         <td><%= practice_question.response %></td>
         <td><%= practice_question.practice_interview_id %></td>
-        <td><%= practice_question.question_id %></td>
+        <td><%= practice_question.question.question %></td>
         <td>
           <a href="/practice_questions/<%= practice_question.id %>" class="btn btn-primary">Show</a>
           <a href="/practice_questions/<%= practice_question.id %>/edit" class="btn btn-warning">Edit</a>

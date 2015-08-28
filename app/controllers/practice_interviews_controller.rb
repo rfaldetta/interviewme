@@ -5,6 +5,18 @@ class PracticeInterviewsController < ApplicationController
 
   def show
     @practice_interview = PracticeInterview.find(params[:id])
+
+    @pq_1 = @practice_interview.practice_questions.first.question
+    @pq_2 = @practice_interview.practice_questions.second.question
+    @pq_3 = @practice_interview.practice_questions.third.question
+    @pq_4 = @practice_interview.practice_questions.fourth.question
+    @pq_5 = @practice_interview.practice_questions.fifth.question
+
+    @r_1 = @practice_interview.practice_questions.first.response
+    @r_2 = @practice_interview.practice_questions.second.response
+    @r_3 = @practice_interview.practice_questions.third.response
+    @r_4 = @practice_interview.practice_questions.fourth.response
+    @r_5 = @practice_interview.practice_questions.fifth.response
   end
 
   def new
